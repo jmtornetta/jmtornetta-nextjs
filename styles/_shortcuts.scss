@@ -1,0 +1,84 @@
+/* This is a file of classes to apply quick template styling to items. */
+
+@use './vars';
+// @import url("https://www.w3schools.com/w3css/4/w3.css"); // Comment out when not using
+
+/* General */
+.display-none { // Shortcut to disable Gutenberg Blocks
+    display: none !important;
+}
+
+/* Colors */
+.color-profile1 { // Quickly apply a font color and background based on defined color variables
+    color: vars.$color-text1;
+    background-color: vars.$color-background1;
+}
+.color-profile2 { // Quickly apply a font color and background based on defined color variables
+    color: vars.$color-text2;
+    background-color: vars.$color-background2;
+}
+/* Alignment and Spacing */
+.fullscreen {min-height: 100%;}
+.center-x {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+.center-child-x {
+    display: flex;
+    justify-content: center;
+}
+.center-child-y {
+    display: flex;
+    align-items: center;
+}
+.margin-large {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+.margin-medium {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.margin-small {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.padding-large {
+    padding: 6rem;
+}
+.padding-medium {
+    padding: 3rem;
+}
+.padding-small {
+    padding:1rem;
+}
+.padding-tiny {
+    padding:.5rem;
+}
+
+/* Transition Effects */
+.transition { // 09/10/2021 JT - Testing required. Javascript may be necessary.
+    transform: translateZ(0);
+    opacity: 1.0;
+    transition-property: opacity;
+    transition-timing-function: ease;
+    &-short {
+        @extend .transition;
+        transition-duration: .5s;
+        transition-delay: 0s;
+    }
+    &-normal {
+        @extend .transition;
+        transition-duration: 1s;
+        transition-delay: .25s;
+    }
+    &-delayed {
+        @extend .transition;
+        transition-duration: 1.5s;
+        transition-delay: .75s;
+    }
+    &.inactive {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,39 @@
+// @import url('https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro'); // Load fonts once and store in variables
+$color-base1: #ffffff;
+$color-base2: #000000;
+$color-main1:#ffdddd;
+$color-main2:#ddffff;
+$color-accent1:#ffaaaa;
+$color-accent2: #aaffff;
+$color-background1:$color-main1;
+$color-background2:$color-main2;
+$color-text1:$color-base2; // text1 and background1 should pair together
+$color-text2:$color-base2; // text2 and background2 should pair together
+$font-headings1: "Source Sans Pro", "sans-serif";
+$font-main1: "Raleway", "sans-serif";
+$fontSize-main1: 1.2rem;
+
+h1, h2, h3,
+h4, h5, h6 { // Call all headings with %headings placeholder tag anywhere, instead of calling each individually
+   @extend %headings !optional;
+}
+
+@mixin breakpoint($point) { // Using em per https://zellwk.com/blog/media-query-units/
+    @if $point == laptop {
+        @media (min-width: 56.25em) {
+            @content;
+        }
+    } @else if $point == tablet {
+        @media (min-width: 37.5em) {
+            @content;
+        }
+    } @else if $point == phone {
+        @media (max-width: 37.5em) {
+            @content;
+        }
+    } @else {
+        @media (max-width: $point) {
+            @content;
+        }
+    }
+}
