@@ -7,7 +7,7 @@
 + [ ] Deploy via AWS free tier  
 ## Later
 + [ ] Research best way to send emails from nextjs server via AWS; Create Contact button  
-+ [ ] Create Portfolio section to host projects (meddkit, etc)  
++ [ ] Create Portfolio section to host projects; Create screen grab gifs of popular github repos  
 # Changelog
 ## 06/25/2022  
 + [x] Rebuild using tailwindcss  
