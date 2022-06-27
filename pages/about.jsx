@@ -9,7 +9,7 @@ export default function About() {
                 <div className="w-full m-auto">
                     <p>Hi, I'm Jon.</p>
                 </div>
-                <div className="min-w-[180px] h-[50vh] relative overflow-hidden">
+                <div className="min-w-[180px] h-[50vh] relative overflow-hidden rounded-md shadow-md shadow-gray-600">
                     <Image src="/images/jonTornetta-profile--tall.jpg" height={800} width={360} />
                 </div>
             </section>
