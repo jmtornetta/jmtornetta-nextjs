@@ -15,6 +15,6 @@ export default function Layout(props){
             {props.children}
         </Content>
         <div id="footer-spacer" className="grow"></div>
-        <Footer className="mt-auto"/>
+        <Footer/>
     </div>
 )}
