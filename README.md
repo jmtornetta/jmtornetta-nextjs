@@ -1,13 +1,16 @@
 # Plan
 ## Next
 + [ ] Build contact form page for "email" icon  
-+ [ ] Create submenu under "Contact" for "Meet" and "Pay"  
++ [ ] Add animation to Riddle page show/hide answer text  
++ [ ] Add standard h1,h2,h3... styles to tailwind config  
++ [ ] Create submenus under "Contact" for "Meet" and "Pay"; Create menu & submenu for Content (or Blog) > Riddles    
++ [ ] Research how to convert markdown to json/html so riddles (and blog posts) can be converted easily  
 + [ ] Create cards for About Me interests: {Personal: {Outdoors: [Bushcraft, Hiking, Fishing, Camping], Marital Arts: [BJJ, Wrestling, Muay Thai], Fitness}, Professional: {Software Engineering: [...], Business Development: [...], Healthcare: [...]}}  
 + [ ] Research best way to send emails from node/nextjs server via AWS; Create Contact button  
 + [ ] Create build script via package.json to build css    
 + [ ] Deploy via AWS free tier  
 ## Later
-+ [ ] Create Portfolio section to host projects; Create screen grab gifs of popular github repos  
++ [ ] Create screen grab gifs of popular github repos for portfolio section  
 # Changelog
 ## 06/25/2022  
 + [x] Remove unncessary features for now: [bell icon, footer boxes]  
