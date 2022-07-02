@@ -1,7 +1,6 @@
 # Plan
 ## Next
 + [ ] Build contact form page for "email" icon  
-+ [ ] Add animation to Riddle page show/hide answer text  
 + [ ] Add standard h1,h2,h3... styles to tailwind config  
 + [ ] Create submenus under "Contact" for "Meet" and "Pay"; Create menu & submenu for Content (or Blog) > Riddles    
 + [ ] Research how to convert markdown to json/html so riddles (and blog posts) can be converted easily  
@@ -12,6 +11,9 @@
 ## Later
 + [ ] Create screen grab gifs of popular github repos for portfolio section  
 # Changelog
+## 07/02/2022
++ [x] Created Riddles page
++ [x] Add animation to Riddle page show/hide answer text // Used headless UI  
 ## 06/25/2022  
 + [x] Remove unncessary features for now: [bell icon, footer boxes]  
 + [x] Add social profile icons to header (LinkedIn, Twitter, GitHub)  
