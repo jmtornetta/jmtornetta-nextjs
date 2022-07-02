@@ -2,7 +2,7 @@
 import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import Contact from './contact'
+import Contact from './contactModal'
 import Image from 'next/image'
 
 const navigation = [
@@ -19,6 +19,8 @@ function classNames(...classes) {
 
 export default function Header() {
   const [isModalOpen, setModalOpen] = useState(false)
+  const toggleModal = (prevState) => setModalOpen(prevState => !prevState)
+
   return (
     <>
       <Disclosure as="nav" className="bg-olive-700">
@@ -77,7 +79,7 @@ export default function Header() {
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="w-6 h-6" aria-hidden="true" />
                   </button> */}
-                  <a id="profile-email" href="#" onClick={() => setModalOpen(true)} className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <a id="profile-email" href="#" onClick={() => toggleModal()} className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330.001 330.001" className="w-6 h-6 p-1" fill="currentColor"><path d="M173.871 177.097a14.982 14.982 0 0 1-8.87 2.903 14.98 14.98 0 0 1-8.871-2.903L30 84.602.001 62.603 0 275.001c.001 8.284 6.716 15 15 15L315.001 290c8.285 0 15-6.716 15-14.999V62.602l-30.001 22-126.129 92.495z"/><path d="M165.001 146.4 310.087 40.001 19.911 40z"/><script type="text/javascript" data-extension-id="fnnegphlobjdpkhecapkijjdkgcjhkib"/></svg>
                   </a>
                   <a id="profile-meet" href="https://cal.com/jmtornetta/personal/" target="_blank" className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -174,7 +176,7 @@ export default function Header() {
           </>
         )}
       </Disclosure>
-      {/* <Contact visible={isModalOpen} /> */}
+      <Contact isOpen={isModalOpen} toggleOpen={toggleModal} />
     </>
   )
 }
