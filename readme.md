@@ -1,3 +1,9 @@
+# About
+A personal web application to make it easy to view my work and get in touch. This Next.JS application is built and maintained for personal use and deployed to Vercel. 
+## Stack
++ Next.js (requires Node.js and React.js)  
++ TailwindCSS  
++ Tailwind Forms plugin  
 # Plan
 ## Next
 + [ ] Build contact form page for "email" icon  
