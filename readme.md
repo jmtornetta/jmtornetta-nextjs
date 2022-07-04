@@ -9,7 +9,7 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Build contact form page for "email" icon  
 + [ ] Add standard h1,h2,h3... styles to tailwind config  
 + [ ] Create submenus under "Contact" for "Meet" and "Pay"; Create menu & submenu for Content (or Blog) > Riddles    
-+ [ ] Research how to convert markdown to json/html so riddles (and blog posts) can be converted easily  
++ [ ] Research how to convert markdown to json/html so riddles (and blog posts) can be converted easily // 07/04/2022 - MarkdownIT library makes the most sense.   
 + [ ] Create cards for About Me interests: {Personal: {Outdoors: [Bushcraft, Hiking, Fishing, Camping], Marital Arts: [BJJ, Wrestling, Muay Thai], Fitness}, Professional: {Software Engineering: [...], Business Development: [...], Healthcare: [...]}}  
 + [ ] Research best way to send emails from node/nextjs server via AWS; Create Contact button  
 + [ ] Create build script via package.json to build css    
