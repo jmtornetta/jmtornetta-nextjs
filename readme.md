@@ -6,10 +6,11 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + Tailwind Forms plugin  
 # Plan
 ## Next
++ [ ] Change 'render' of markdown to 'parse' and then 'render' in the page's return content.  
++ [ ] Replicate markdown parsing and readfile for blog content.  
 + [ ] Build contact form page for "email" icon  
 + [ ] Add standard h1,h2,h3... styles to tailwind config  
 + [ ] Create submenus under "Contact" for "Meet" and "Pay"; Create menu & submenu for Content (or Blog) > Riddles    
-+ [ ] Research how to convert markdown to json/html so riddles (and blog posts) can be converted easily // 07/04/2022 - MarkdownIT library makes the most sense.   
 + [ ] Create cards for About Me interests: {Personal: {Outdoors: [Bushcraft, Hiking, Fishing, Camping], Marital Arts: [BJJ, Wrestling, Muay Thai], Fitness}, Professional: {Software Engineering: [...], Business Development: [...], Healthcare: [...]}}  
 + [ ] Research best way to send emails from node/nextjs server via AWS; Create Contact button  
 + [ ] Create build script via package.json to build css    
@@ -17,6 +18,9 @@ A personal web application to make it easy to view my work and get in touch. Thi
 ## Later
 + [ ] Create screen grab gifs of popular github repos for portfolio section  
 # Changelog
+## 07/04/2022
++ [x] Research how to convert markdown to json/html so riddles (and blog posts) can be converted easily // 07/04/2022 - MarkdownIT library makes the most sense.   
++ [x] Digest markdown files from 'riddles' directory and convert to html on 'riddles' page.  
 ## 07/02/2022
 + [x] Created Riddles page
 + [x] Add animation to Riddle page show/hide answer text // Used headless UI  
