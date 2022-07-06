@@ -19,6 +19,7 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Deploy via AWS free tier or Vercel  
 ## Later
 + [ ] Create screen grab gifs of popular github repos for portfolio section  
++ [ ] Update 'getServerSideProps' so cached content is used unless there is an update (then revalidate). // Don't want to ping the server for every page visit.  
 + [ ] Embed iframe of calendar in modal popup  
 # Changelog
 ## 07/05/2022

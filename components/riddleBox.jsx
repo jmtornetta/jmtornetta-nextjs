@@ -5,7 +5,7 @@ import Button from './button'
 function Title(props){
   // Custom style and node (h2) for riddle titles
   return(
-    <h2 className="mb-2 text-lg font-bold" {...props}>{props.children}</h2>
+    <h2 className="mb-2 text-lg font-bold">{props.children}</h2>
   )
 }
 
