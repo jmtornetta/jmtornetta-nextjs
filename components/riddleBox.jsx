@@ -1,19 +1,14 @@
 import ReactMarkdown from "react-markdown"
 import { Transition } from '@headlessui/react'
 import Button from './button'
-
-function Title(props){
-  // Custom style and node (h2) for riddle titles
-  return(
-    <h2 className="mb-2 text-lg font-bold">{props.children}</h2>
-  )
-}
+import BoxTitle from "/components/boxTitle"
+import BoxSubtitle from "/components/boxSubtitle"
 
 export default function RiddleBox(props){
   return (
     <div id="riddleBox" className="p-2 mx-auto mt-4 rounded-md shadow-md bg-brown-200">
-      <Title>{props.title}</Title>
-      <p className="italic"><span className="font-semibold">Difficulty: </span><span>{props.difficulty}</span></p>
+      <BoxTitle>{props.title}</BoxTitle>
+      <BoxSubtitle descriptor="Difficulty">{props.difficulty}</BoxSubtitle>
       <ReactMarkdown 
         className="mt-2 text-md" 
         id="riddleText"
@@ -42,7 +37,7 @@ export default function RiddleBox(props){
         leaveFrom="opacity-100 scale-y-100"
         leaveTo="opacity-0 scale-y-0"
       >
-        <span className="font-semibold">Answer: </span><span>{props.answer}</span>
+      <BoxSubtitle descriptor="Answer">{props.answer}</BoxSubtitle>
       </Transition>
       <Button className="mt-4" onClick={props.handleClick}>{props.isShown ? "Hide" : "Show"}</Button>
     </div>
