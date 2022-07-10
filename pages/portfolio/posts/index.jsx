@@ -54,7 +54,7 @@ export default function Posts({posts}){
     // Render riddle boxes by looping through riddle data array
     const postElements = postsGallery.map(_post => (
         <PostBox
-            handleClick={()=>toggleShown(_riddle.filename)} // Learning: Define new function to resolve eventHandler object
+            // handleClick={()=>toggleShown(_riddle.filename)}
             key={_post.filename} 
             title={_post.postTitle} 
             date={_post.postDate} 
@@ -68,7 +68,7 @@ export default function Posts({posts}){
     return (
         <Layout title="Blog Posts">
             {/* Render all post boxes on the page as elements, here */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 place-content-start md:grid-cols-2">
                 {postElements}
             </div>
         </Layout>

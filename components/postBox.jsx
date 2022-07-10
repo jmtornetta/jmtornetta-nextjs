@@ -1,45 +1,47 @@
-import ReactMarkdown from "react-markdown"
-import { Transition } from '@headlessui/react'
+// import ReactMarkdown from "react-markdown"
 import BoxTitle from "/components/boxTitle"
-// import Button from './button'
+import BoxSubtitle from "/components/boxSubtitle"
+import Image from "next/image"
+import Link from "next/link"
+import Button from './button'
 
 export default function PostBox(props){
-  // [_] Process markdown text so that all characters after the first space after "x" characters are trimmed out and a "..." is appended.
-  // [_] Add a "Read More" button to the bottom of the post that links to the post slug.
+  // Create preview string from markdown
+  const previewStr = ((text = props.text, length = 300) => {
+    // Replace markdown headers and line breaks
+    const _transMarkdown = text.replace(/#{1,10}.*/g,"").replace(/(\r\n|\n|\r)/gm," ")
+    // Slice markdown at first space and add ellipses if it exceeds target length
+    const newStr = _transMarkdown.length > length ? _transMarkdown.slice(0, _transMarkdown.indexOf(" ", length)) + "..." : _transMarkdown
+    return newStr
+  })()
+  
   return (
-    <div id="postBox" className="w-full p-2 m-auto rounded-md shadow-md bg-brown-200">
+    <div id="postBox" className="flex flex-col justify-between w-full p-2 rounded-md shadow-md bg-brown-200">
+      {/* Display image if it exists */}
+      {()=>{if(props.image) return <Image src={props.image} height="300px" width="300px" />}}
       <BoxTitle>{props.title}</BoxTitle>
-      {/* <p className="italic"><span className="font-semibold">Difficulty: </span><span>{props.difficulty}</span></p> */}
+      <BoxSubtitle descriptor="Date">{props.date}</BoxSubtitle>
+      <p id="postPreview" className="w-auto mt-2 overflow-hidden break-all text-ellipsis text-md max-h-60">
+        {previewStr}
+      </p>
+      {/* Posterity: Markdown component that removes all headers. Decided to do this with node.js, above.
+      
       <ReactMarkdown 
-        className="mt-2 text-md" 
+        className="w-auto mt-2 overflow-hidden break-all text-ellipsis text-md max-h-60" 
         id="postText"
-        children={props.text}
-        // components={{
-        //   // Remap all riddle markdown nodes (h[x]) to Title node
-        //   h1 : ({node, ...props}) => <Title title={props.title} {...props} />,
-        //   h2 : ({node, ...props}) => <Title {...props} />,
-        //   h3 : ({node, ...props}) => <Title {...props} />,
-        //   h4 : ({node, ...props}) => <Title {...props} />,
-        //   h5 : ({node, ...props}) => <Title {...props} />,
-        //   h6 : ({node, ...props}) => <Title {...props} />
-        // }}
-      />
-      {/* Animations for React via Tailwind: https://headlessui.com/react/transition */}
-      <Transition 
-        as='div' 
-        id="riddleAnswer" 
-        className="mt-2 italic"
-        show={props.isShown} 
-        enter="transition transform duration-1000"
-        enterFrom="opacity-0 translate-y-5"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition transform duration-1000"
-        leaveFrom="opacity-100 scale-y-100"
-        leaveTo="opacity-0 scale-y-0"
-      >
-        {/* <span className="font-semibold">Answer: </span><span>{props.answer}</span> */}
-      </Transition>
-      {/* <Button className="mt-4" onClick={props.handleClick}>{props.isShown ? "Hide" : "Show"}</Button> */}
+        children={previewStr}
+        components={(()=>{
+          // IIFE returns object to remove "heading" nodes from markup for preview text
+          const obj = {}
+          for(let i = 1; i<=6; i++){
+            const _prop = `h${i}`
+            obj[_prop] = () => (<></>)
+          }
+          return obj
+        })()}
+      /> */}
+      {/* Read more button that links to post slug */}
+      <Link href={"/portfolio/posts/" + props.slug}><Button className="mt-4 justify-self-end w-fit">Read More</Button></Link>
     </div>
   )
 }
