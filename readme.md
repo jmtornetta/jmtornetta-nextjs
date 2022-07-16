@@ -8,9 +8,8 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + Tailwind Forms Plugin => Styling  
 # Plan
 ## Next
-+ [ ] Remove placeholder logo and move profile pic to left and change dropdown(s)  
 + [ ] Replicate markdown parsing and readfile for blog content.  
-+ [ ] Build contact form page for "email" icon  
++ [ ] Build contact form page by combining email, meet, pay, and social media  
 + [ ] Add standard h1,h2,h3... styles to tailwind config  
 + [ ] Create submenus under "Contact" for "Meet" and "Pay"; Create menu & submenu for Content (or Blog) > Riddles    
 + [ ] Create cards for About Me interests: {Personal: {Outdoors: [Bushcraft, Hiking, Fishing, Camping], Marital Arts: [BJJ, Wrestling, Muay Thai], Fitness}, Professional: {Software Engineering: [...], Business Development: [...], Healthcare: [...]}}  
@@ -18,11 +17,16 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Create build script via package.json to build css    
 + [ ] Deploy via AWS free tier or Vercel  
 ## Later
++ [ ] Create font family theme using Tailwind  
 + [ ] Randomize riddle order by apply a random sorting algo to riddle array.  
 + [ ] Create screen grab gifs of popular github repos for portfolio section  
 + [ ] Update 'getServerSideProps' so cached content is used unless there is an update (then revalidate). // Don't want to ping the server for every page visit.  
 + [ ] Embed iframe of calendar in modal popup  
 # Changelog
+## 07/16/2022
++ [x] Remove placeholder logo and move profile pic to left and change dropdown(s)  
++ [x] Fix styling for mobile nav  
++ [x] Simplify DOM for header  
 ## 07/05/2022
 + [x] Dynamically parse markdown riddles from 'data/'  
 + [x] Parse frontmatter into object and pass as prop to 'Riddle' component  
