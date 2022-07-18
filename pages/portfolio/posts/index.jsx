@@ -38,23 +38,15 @@ export default function Posts({posts}){
         const date2 = new Date(b.date)
         return date2 - date1; // Sorts from newest to oldest
     })
-    const _shownPosts = _posts.slice(0,5)
-    console.log(_shownPosts)
-
-    const [postsGallery,setPostsGallery] = useState(posts)
     
-    // // Rebuild state-array of riddles toggling the show/hide property of clicked riddle
-    // const toggleShown = (filename) => setPostsGallery(prevState => {
-    //     return prevState.map(_riddle => {
-    //         // Posterity: Expand all riddle properties before overwriting the 'isShown' property
-    //         return _riddle.filename === filename ? {..._riddle, isShown: !_riddle.isShown} : _riddle 
-    //     })
-    // })
+    // Only show the first 6 post previews
+    const _shownPosts = _posts.slice(0,5)
+
+    // const [postsGallery,setPostsGallery] = useState(posts)
     
     // Render riddle boxes by looping through riddle data array
-    const postElements = postsGallery.map(_post => (
+    const postElements = _shownPosts.map(_post => (
         <PostBox
-            // handleClick={()=>toggleShown(_riddle.filename)}
             key={_post.filename} 
             title={_post.postTitle} 
             date={_post.postDate} 
