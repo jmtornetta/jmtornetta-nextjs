@@ -1,7 +1,7 @@
 ---
 title: A blog post
 date: 07/04/2022
-image: none
+image: /images/jonTornetta-profile--face.jpg
 ---
 
 # Hello world

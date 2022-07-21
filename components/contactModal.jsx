@@ -2,7 +2,7 @@
 import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { MailIcon } from '@heroicons/react/outline'
-import Button from './button'
+import Button from '/components/button'
 
 export default function Contact(props) {
   const cancelButtonRef = useRef(null)
@@ -45,7 +45,7 @@ export default function Contact(props) {
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Send me an email. I will read it.
+                          Send me an email. I usually respond within 48 hours.
                         </p>
                       </div>
                       <textarea className="w-full mt-2 rounded-sm shadow-inner"/>

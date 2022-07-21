@@ -1,4 +1,4 @@
-import { useState } from "react"
+// import { useState } from "react"
 import ls from "/utils/ls.js"
 import parseMarkdownFrontmatter from "/utils/parseMarkdownFrontmatter.js"
 import * as fs from "node:fs/promises"
@@ -7,7 +7,7 @@ import PostBox from "/components/postBox"
 
 const postsDir = "data/posts/"
 
-export async function getServerSideProps(){ // Run from server on every page load
+export async function getStaticProps(){ // Run from server on every page load
     // List all files in directory
     const filesList = await ls(postsDir).catch(console.error)
     
@@ -21,9 +21,9 @@ export async function getServerSideProps(){ // Run from server on every page loa
             // vfile : _fileParsed.vfile, // Returns same value as 'markdown' once frontmatter is processed, so can be left out
             postTitle : _fileParsed.frontmatter.title ? _fileParsed.frontmatter.title : null,
             postDate : _fileParsed.frontmatter.date ? _fileParsed.frontmatter.date : null,
-            postImage : _fileParsed.frontmatter.image ? _fileParsed.frontmatter.image : null,
-            postSlug : _fileParsed.frontmatter.slug ? _fileParsed.frontmatter.slug : file.filename,
-            isShown : false // Initially hide all post snippets
+            postImage : _fileParsed.frontmatter.image.match(/\.(jpg|jpeg|png|webp|svg|gif){1,10}$/) ? _fileParsed.frontmatter.image : null,
+            postSlug : _fileParsed.frontmatter.slug ? _fileParsed.frontmatter.slug : file.filename.replace(/\.[a-zA-Z]{1,10}$/,""),
+            isShown : false // Initially hide all post snippets; for use with filter later
         }
         return postParsed // Store each file object with name, path, and html in array
     }))
@@ -42,7 +42,7 @@ export default function Posts({posts}){
     // Only show the first 6 post previews
     const _shownPosts = _posts.slice(0,5)
 
-    // const [postsGallery,setPostsGallery] = useState(posts)
+    // const [postsGallery,setPostsGallery] = useState(posts) // Will use for filter/sort
     
     // Render riddle boxes by looping through riddle data array
     const postElements = _shownPosts.map(_post => (
@@ -51,6 +51,7 @@ export default function Posts({posts}){
             title={_post.postTitle} 
             date={_post.postDate} 
             text={_post.markdown}
+            textLength={300}
             slug={_post.postSlug} 
             image={_post.postImage}
             isShown={_post.isShown}
@@ -60,7 +61,7 @@ export default function Posts({posts}){
     return (
         <Layout title="Blog Posts">
             {/* Render all post boxes on the page as elements, here */}
-            <div className="grid grid-cols-1 gap-4 place-content-start md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 place-content-start sm:grid-cols-2">
                 {postElements}
             </div>
         </Layout>

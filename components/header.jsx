@@ -1,8 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import Contact from './contactModal'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import {classNames} from '/utils/classNames'
+import Contact from '/components/contactModal'
 import Image from 'next/image'
 
 const navigation = [
@@ -11,11 +12,6 @@ const navigation = [
   { name: 'Portfolio', href: '/portfolio/', current: false },
   { name: 'Contact', href: '/contact/', current: false },
 ]
-
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Header() {
   const [isModalOpen, setModalOpen] = useState(false)

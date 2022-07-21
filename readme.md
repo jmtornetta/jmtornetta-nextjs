@@ -17,6 +17,7 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Create build script via package.json to build css    
 + [ ] Deploy via AWS free tier or Vercel  
 ## Later
++ [ ] Add filter/sort box for "/posts" page using "useState".  
 + [ ] Create font family theme using Tailwind  
 + [ ] Setup datepicker on posts page via [Flowbite NPM Package](https://github.com/themesberg/flowbite/blob/main/content/plugins/datepicker.md#javascript)
 + [ ] Randomize riddle order by apply a random sorting algo to riddle array.  
@@ -24,6 +25,12 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Update 'getServerSideProps' so cached content is used unless there is an update (then revalidate). // Don't want to ping the server for every page visit.  
 + [ ] Embed iframe of calendar in modal popup  
 # Changelog
+## 07/20/2022
++ [x] Feature: Render links over buttons as anchor tags  
++ [x] Feature: Display feature images over blog post box preview  
++ [x] Refactor: Abstract out "classNames()" for use in multiple pages  
++ [x] Refactor: Pass posts feature text length as prop to postBox (post preview box)  
++ [x] Refactor: Change relative import paths to absolute paths for components  
 ## 07/16/2022
 + [x] Remove placeholder logo and move profile pic to left and change dropdown(s)  
 + [x] Fix styling for mobile nav  
