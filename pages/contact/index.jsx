@@ -1,7 +1,10 @@
-import Layout from "../../components/layout";
+import Layout from "/components/layout";
+import ContactForm from "/components/contactForm";
 
-export default function Contact(){return(
-    <Layout title="Contact">
-        <p>This is where the contact form will live...</p>
-    </Layout>
-)}
+export default function Contact() {
+    return (
+        <Layout title="Contact">
+            <ContactForm />
+        </Layout>
+    )
+}
