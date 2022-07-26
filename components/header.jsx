@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import {classNames} from '/utils/classNames'
-import Contact from '/components/contactModal'
+import ContactModal from '/components/contactModal'
 import Image from 'next/image'
 
 const navigation = [
@@ -99,7 +99,7 @@ export default function Header() {
           </>
         )}
       </Disclosure>
-      <Contact isOpen={isModalOpen} toggleOpen={toggleModal} />
+      <ContactModal isOpen={isModalOpen} toggleOpen={toggleModal} />
     </>
   )
 }
