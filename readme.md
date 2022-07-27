@@ -9,9 +9,7 @@ A personal web application to make it easy to view my work and get in touch. Thi
 # Plan
 ## Next
 + [ ] Replicate markdown parsing and readfile for blog content.  
-+ [ ] Build contact form page by combining email, meet, pay, and social media  
 + [ ] Add standard h1,h2,h3... styles to tailwind config  
-+ [ ] Create submenus under "Contact" for "Meet" and "Pay"; Create menu & submenu for Content (or Blog) > Riddles    
 + [ ] Create cards for About Me interests: {Personal: {Outdoors: [Bushcraft, Hiking, Fishing, Camping], Marital Arts: [BJJ, Wrestling, Muay Thai], Fitness}, Professional: {Software Engineering: [...], Business Development: [...], Healthcare: [...]}}  
 + [ ] Research best way to send emails from node/nextjs server via AWS; Create Contact button  
 + [ ] Create build script via package.json to build css    
@@ -25,6 +23,10 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Update 'getServerSideProps' so cached content is used unless there is an update (then revalidate). // Don't want to ping the server for every page visit.  
 + [ ] Embed iframe of calendar in modal popup  
 # Changelog
+## 07/27/2022
++ [-] Create submenus for header nav  
++ [x] Refactor: Make modal multipurpose  
++ [x] Feature: Contact form page by combining email, meet, pay, and social media  
 ## 07/20/2022
 + [x] Feature: Render links over buttons as anchor tags  
 + [x] Feature: Display feature images over blog post box preview  

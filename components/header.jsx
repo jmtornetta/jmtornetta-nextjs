@@ -8,9 +8,14 @@ import {classNames} from '/utils/classNames'
 
 const navigation = [
   // { name: 'Blog', href: '/blog', current: false },
-  { name: 'About', href: '/about/', current: false },
-  { name: 'Portfolio', href: '/portfolio/', current: false },
-  { name: 'Contact', href: '/contact/', current: false },
+  { name: "About", href: "/about/", current: false },
+  { name: "Portfolio", href: "/portfolio/", current: false, children: [
+    {name: "Software", href: "/portfolio/software"},
+    // {name: "Posts", href: "/portfolio/posts"},
+    // {name: "Poems", href: "/portfolio/poems"},
+    {name: "Riddles", href: "/portfolio/riddles"},
+  ]},
+  { name: "Contact", href: "/contact/", current: false },
 ]
 
 export default function Header() {
@@ -48,17 +53,36 @@ export default function Header() {
                 <div id="nav-menu" className="justify-center flex-grow hidden sm:flex">
                   <div className="flex mt-1 md:space-x-3 lg:space-x-6 xl:lg:space-x-12">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
+                      <div key={item.name}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-olive-100 hover:bg-brown-700 hover:text-olive-300',
-                          'px-3 py-2 rounded-md text-md font-medium'
+                          'relative px-3 py-2 rounded-md text-md font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
-                        {item.name}
-                      </a>
+                        <a href={item.href}>{item.name}</a>
+                      
+                      {/* If menu item has children, map those too */}
+                      {item.children &&
+                        <div className="absolute left-0 flex flex-col rounded shadow top-10 shadow-gray-700 bg-brown-800">
+                          {item.children.map(child => (
+                            <div key={child.name} className="flex">
+                              <span className="pl-3 my-auto">{"> "}</span>
+                              <a href={child.href}
+                                className={classNames(
+                                  item.current ? 'bg-gray-900 text-white' : 'text-olive-100 hover:bg-brown-700 hover:text-olive-300',
+                                  'py-2 px-2 text-md font-medium'
+                                )}
+                                aria-current={item.current ? 'page' : undefined}
+                              >
+                                {child.name}
+                              </a>
+                            </div>
+                          ))}
+                        </div>
+                      }
+                      </div>
+                      
                     ))}
                   </div>
                 </div>
