@@ -1,10 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
+import Modal from '/components/modal'
+import Image from 'next/image'
 import { useState } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import {classNames} from '/utils/classNames'
-import ContactModal from '/components/contactModal'
-import Image from 'next/image'
 
 const navigation = [
   // { name: 'Blog', href: '/blog', current: false },
@@ -15,7 +15,14 @@ const navigation = [
 
 export default function Header() {
   const [isModalOpen, setModalOpen] = useState(false)
+  const [modalType, setModalType] = useState("contact")
+
   const toggleModal = () => setModalOpen(prevState => !prevState)
+  const initModal = (type) => {
+    setModalType(type)
+    toggleModal()
+  }
+
   return (
     <>
       <Disclosure as="nav" className="bg-olive-700">
@@ -56,15 +63,16 @@ export default function Header() {
                   </div>
                 </div>
                 <div id="icons-container" className="flex items-center justify-end flex-grow gap-1">
-                  <a id="profile-email" href="#" onClick={() => toggleModal()} className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <a id="profile-email" href="#" onClick={() => initModal("contact")} className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330.001 330.001" className="w-6 h-6 p-1" fill="currentColor"><path d="M173.871 177.097a14.982 14.982 0 0 1-8.87 2.903 14.98 14.98 0 0 1-8.871-2.903L30 84.602.001 62.603 0 275.001c.001 8.284 6.716 15 15 15L315.001 290c8.285 0 15-6.716 15-14.999V62.602l-30.001 22-126.129 92.495z" /><path d="M165.001 146.4 310.087 40.001 19.911 40z" /><script type="text/javascript" data-extension-id="fnnegphlobjdpkhecapkijjdkgcjhkib" /></svg>
                   </a>
-                  <a id="profile-meet" href="https://cal.com/jmtornetta/personal/" target="_blank" className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <a id="profile-meet" href="#" onClick={() => initModal("meet")} className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 330" className="w-6 h-6 p-1" fill="currentColor"><path d="M30 120H0v195c0 8.284 6.716 15 15 15h165V195c0-8.283 6.716-15 15-15h135v-60H30z" /><path d="M278.787 210H210V321.213L321.213 210zM315 30h-85V15c0-8.284-6.716-15-15-15-8.284 0-15 6.716-15 15v15h-70V15c0-8.284-6.716-15-15-15-8.284 0-15 6.716-15 15v15H15C6.716 30 0 36.716 0 45v45h330V45c0-8.284-6.716-15-15-15z" /><script type="text/javascript" data-extension-id="fnnegphlobjdpkhecapkijjdkgcjhkib" /></svg>
                   </a>
                   <a id="profile-pay" href="https://paypal.me/JonTornetta/" target="_blank" className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-6 h-6 p-0.5" fill="currentColor"><path d="M1 24c0 1.1.9 2 2 2h26c1.1 0 2-.9 2-2V12H1v12zm3-5h12a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 3h5a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zM31 8v1H1V8c0-1.1.9-2 2-2h26c1.1 0 2 .9 2 2z" /><script type="text/javascript" data-extension-id="fnnegphlobjdpkhecapkijjdkgcjhkib" /></svg>
                   </a>
+                  <span className="text-olive-300">||</span>
                   <a id="profile-linkedin" href="https://www.linkedin.com/in/jontornetta/" target="_blank" className="p-1 rounded-full text-olive-300 bg-brown-800 hover:text-brown-800 hover:bg-olive-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310" className="w-6 h-6 p-1" fill="currentColor"><path d="M72.16 99.73H9.927a5 5 0 0 0-5 5v199.928a5 5 0 0 0 5 5H72.16a5 5 0 0 0 5-5V104.73a5 5 0 0 0-5-5zM41.066.341C18.422.341 0 18.743 0 41.362 0 63.991 18.422 82.4 41.066 82.4c22.626 0 41.033-18.41 41.033-41.038C82.1 18.743 63.692.341 41.066.341zM230.454 94.761c-24.995 0-43.472 10.745-54.679 22.954V104.73a5 5 0 0 0-5-5h-59.599a5 5 0 0 0-5 5v199.928a5 5 0 0 0 5 5h62.097a5 5 0 0 0 5-5V205.74c0-33.333 9.054-46.319 32.29-46.319 25.306 0 27.317 20.818 27.317 48.034v97.204a5 5 0 0 0 5 5H305a5 5 0 0 0 5-5V194.995c0-49.565-9.451-100.234-79.546-100.234z" /><script type="text/javascript" data-extension-id="fnnegphlobjdpkhecapkijjdkgcjhkib" /></svg>
                   </a>
@@ -99,7 +107,7 @@ export default function Header() {
           </>
         )}
       </Disclosure>
-      <ContactModal isOpen={isModalOpen} toggleOpen={toggleModal} />
+      <Modal id="modal" isOpen={isModalOpen} toggleOpen={toggleModal} type={modalType}/>
     </>
   )
 }
