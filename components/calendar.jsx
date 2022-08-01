@@ -14,7 +14,7 @@ export default function Calendar(props) {
           Meet Me
         </h3>
         <p className="mt-2 text-sm text-gray-500">
-          Set up a meeting here for less back-and-forth. Please make sure I know you, first!
+          Set up a meeting for less back-and-forth. Please make sure I am expecting it, first!
         </p>
         <Cal
           className="mt-2"
