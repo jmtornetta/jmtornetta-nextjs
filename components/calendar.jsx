@@ -3,6 +3,7 @@ import { CalendarIcon } from "@heroicons/react/outline";
 import { classNames } from "/utils/classNames"
 
 export default function Calendar(props) {
+  const calendarPath = "jmtornetta/mk-meeting"
   return (
     <div className={classNames(props.className, "sm:flex sm:items-start")}>
       <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto rounded-full bg-olive-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -17,7 +18,7 @@ export default function Calendar(props) {
         </p>
         <Cal
           className="mt-2"
-          calLink="jmtornetta/personal"
+          calLink={calendarPath}
           config={{
             name: "",
             email: "",
