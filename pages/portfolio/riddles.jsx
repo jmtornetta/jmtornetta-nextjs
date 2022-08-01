@@ -7,7 +7,7 @@ import RiddleBox from "/components/riddleBox"
 
 const riddleDir = "data/riddles/" // '/data/' is not found by `fs`; not certain why 
 
-export async function getServerSideProps(){ // Run from server on every page load
+export async function getStaticProps(){ // Run once as riddles should be static
     // List all files in directory
     const filesList = await ls(riddleDir).catch(console.error)
     
@@ -57,9 +57,8 @@ export default function Riddles({riddles}){
 
     return (
         <Layout title="Riddles">
-            <p>Enjoy riddles? If so, you are in the minority. Nonetheless, here are a few I have written.</p>
-            <p>Yes, I had a bit too much time on my hands during the pandemic and my knee surgery...</p>
-            <p className="mt-4 text-sm"><span className="font-semibold">Technical notes: </span>These riddles are pre-rendered server-side dynamically with Next.js. They are parsed from markdown files with YAML frontmatter and converted to React JSX components for infinite scalability.</p>
+            <p>Fancy your abstract problem-solving capabilities? Test yourself with a few riddles I have written.</p>
+            <p className="mt-4 text-sm"><span className="font-semibold">Technical notes: </span>Content is pre-rendered by the server for speed and indexing but re-rendered dynamically via application state by Next.js. Content is parsed from markdown files with YAML frontmatter and converted to React JSX components for scalability.</p>
             {/* Render all riddle boxes on the page as elements, here */}
             {riddleElements}
         </Layout>
