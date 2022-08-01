@@ -7,13 +7,16 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import {classNames} from '/utils/classNames'
 
 const navigation = [
-  // { name: 'Blog', href: '/blog', current: false },
   { name: "About", href: "/about/", current: false },
-  { name: "Portfolio", href: "/portfolio/", current: false, children: [
-    {name: "Software", href: "/portfolio/software"},
-    // {name: "Posts", href: "/portfolio/posts"},
-    // {name: "Poems", href: "/portfolio/poems"},
-    {name: "Riddles", href: "/portfolio/riddles"},
+  { name: "Programming", href: "/programming/", current: false, children: [
+    {name: "Frontend", href: "/programming/frontend"},
+    {name: "Backend/CLI", href: "/programming/backend"},
+    {name: "PRJ: Find a Programmer", href: "/programming/frontend"},
+  ]},
+  { name: "Writing", href: "/writing/", current: false, children: [
+    {name: "Posts", href: "/writing/posts"},
+    {name: "Poems", href: "/writing/poems"},
+    {name: "Riddles", href: "/writing/riddles"},
   ]},
   { name: "Contact", href: "/contact/", current: false },
 ]
@@ -49,9 +52,9 @@ export default function Header() {
                 <div id="profile-face" className="w-8 h-8 m-1 rounded-full overflow-clip">
                   <Image src="/images/jonTornetta-profile--face.jpg" height={60} width={60} alt="Jon Tornetta face profile" />
                 </div>
-                <h2 className="hidden py-2 ml-3 mr-1 text-lg font-bold whitespace-nowrap text-olive-100 sm:block">Jon Tornetta</h2>
+                <h1 className="hidden py-2 mt-0 ml-3 mr-1 text-lg font-bold whitespace-nowrap text-olive-100 sm:block">Jon Tornetta</h1>
                 <div id="nav-menu" className="justify-center flex-grow hidden sm:flex">
-                  <div className="flex mt-1 md:space-x-3 lg:space-x-6 xl:lg:space-x-12">
+                  <div className="flex mx-2 mt-1 md:space-x-3 lg:space-x-4 xl:lg:space-x-6">
                     {navigation.map((item) => (
                       <div key={item.name}
                         className={classNames(
@@ -60,13 +63,13 @@ export default function Header() {
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
-                        <a href={item.href}>{item.name}</a>
+                        <a href={item.href}><h2 className="mt-0 text-base text-current">{item.name}</h2></a>
                       
                       {/* If menu item has children (submenus), map those too */}
                       {item.children &&
-                        <ul className="absolute left-0 flex-col hidden rounded shadow group-hover:flex top-10 shadow-gray-700 bg-brown-800">
+                        <ul className="absolute left-0 flex-col hidden m-0 font-normal rounded shadow group-hover:flex top-10 shadow-gray-700 bg-brown-800">
                           {item.children.map(child => (
-                            <li key={child.name} className="flex font-medium text-md text-olive-100 hover:bg-brown-700 hover:text-olive-300">
+                            <li key={child.name} className="flex m-0 text-base text-olive-100 hover:bg-brown-700 hover:text-olive-300">
                               <span className="pl-3 my-auto">{"> "}</span>
                               <a href={child.href}
                                 className={classNames(
@@ -75,7 +78,7 @@ export default function Header() {
                                 )}
                                 aria-current={item.current ? 'page' : undefined}
                               >
-                                {child.name}
+                                <h3 className="mt-0 text-base font-normal text-current">{child.name}</h3>
                               </a>
                             </li>
                           ))}

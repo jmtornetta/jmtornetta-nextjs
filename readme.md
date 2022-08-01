@@ -8,14 +8,12 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + Tailwind Forms Plugin => Styling  
 # Plan
 ## Next
-+ [ ] Replicate markdown parsing and readfile for blog content.  
-+ [ ] Add standard h1,h2,h3... styles to tailwind config  
-+ [ ] Create cards for About Me interests: {Personal: {Outdoors: [Bushcraft, Hiking, Fishing, Camping], Marital Arts: [BJJ, Wrestling, Muay Thai], Fitness}, Professional: {Software Engineering: [...], Business Development: [...], Healthcare: [...]}}  
 + [ ] Research best way to send emails from node/nextjs server via AWS; Create Contact button  
 + [ ] Create build script via package.json to build css    
 + [ ] Deploy via AWS free tier or Vercel  
 ## Later
 + [ ] Add filter/sort box for "/posts" page using "useState".  
++ [ ] Create cards for About Me interests: {Personal: {Outdoors: [Bushcraft, Hiking, Fishing, Camping], Marital Arts: [BJJ, Wrestling, Muay Thai], Fitness}, Professional: {Software Engineering: [...], Business Development: [...], Healthcare: [...]}}  
 + [ ] Create font family theme using Tailwind  
 + [ ] Setup datepicker on posts page via [Flowbite NPM Package](https://github.com/themesberg/flowbite/blob/main/content/plugins/datepicker.md#javascript)
 + [ ] Randomize riddle order by apply a random sorting algo to riddle array.  
@@ -23,8 +21,13 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Update 'getServerSideProps' so cached content is used unless there is an update (then revalidate). // Don't want to ping the server for every page visit.  
 + [ ] Embed iframe of calendar in modal popup  
 # Changelog
+## 08/01/2022
++ [x] Header styling fixes and completion.  
++ [x] Update page content.  
++ [x] Replicate markdown parsing and readfile for blog content.  
++ [x] Add standard h1,h2,h3... styles to tailwind config  
 ## 07/27/2022
-+ [-] Create submenus for header nav  
++ [x] Create submenus for header nav  
 + [x] Refactor: Make modal multipurpose  
 + [x] Feature: Contact form page by combining email, meet, pay, and social media  
 ## 07/20/2022

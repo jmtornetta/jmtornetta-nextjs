@@ -58,7 +58,7 @@ export default function Riddles({riddles}){
     return (
         <Layout title="Riddles">
             <p>Fancy your abstract problem-solving capabilities? Test yourself with a few riddles I have written.</p>
-            <p className="mt-4 text-sm"><span className="font-semibold">Technical notes: </span>Content is pre-rendered by the server for speed and indexing but re-rendered dynamically via application state by Next.js. Content is parsed from markdown files with YAML frontmatter and converted to React JSX components for scalability.</p>
+            <p className="mt-4 text-sm"><span className="font-semibold">Technical notes: </span>Content is pre-rendered by the server for speed and search indexing but re-rendered dynamically via application state with NextJS. Content is parsed from markdown files with YAML frontmatter and rendered in React JSX components for maintenance and scalability.</p>
             {/* Render all riddle boxes on the page as elements, here */}
             {riddleElements}
         </Layout>

@@ -6,7 +6,7 @@ import BoxSubtitle from "/components/boxSubtitle"
 
 export default function RiddleBox(props){
   return (
-    <div id="riddleBox" className="p-2 mx-auto mt-4 rounded-md shadow-md bg-brown-200">
+    <div id="riddleBox" className="p-4 mx-auto mt-4 rounded-md shadow-md bg-brown-200">
       <BoxTitle>{props.title}</BoxTitle>
       <BoxSubtitle descriptor="Difficulty">{props.difficulty}</BoxSubtitle>
       <ReactMarkdown 

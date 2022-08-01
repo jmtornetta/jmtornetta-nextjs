@@ -17,7 +17,7 @@ export default function PostBox(props) {
   })()
 
   return (
-    <div id="postBox" className="flex flex-col justify-end w-full p-2 rounded-md shadow-md bg-brown-200">
+    <div id="postBox" className="flex flex-col justify-end w-full p-4 rounded-md shadow-md bg-brown-200">
       {/* Display image if it exists and is image extension. Determined on parent page by passing image path or null to component. */}
       <div className="mx-auto overflow-hidden basis-[300px] rounded-md">
         {props.image && <Image className="rounded-md" alt="Post Featured Image" src={props.image} width="600px" height="600px" />}
