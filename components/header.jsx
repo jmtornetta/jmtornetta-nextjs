@@ -27,7 +27,7 @@ export default function Header() {
 
   const toggleModal = () => setModalOpen(prevState => !prevState)
   const initModal = (type) => {
-    setModalType(type)
+    setModalType(type) // Can update state directly instead of passing a function with "prevState" because new value does not depend on old value
     toggleModal()
   }
 

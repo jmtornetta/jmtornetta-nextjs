@@ -36,7 +36,7 @@ export default function Riddles({riddles}){
     
     // Rebuild state-array of riddles toggling the show/hide property of clicked riddle
     const toggleShown = (filename) => setRiddleDrawer(prevState => {
-        return prevState.map(_riddle => {
+        return prevState.map(_riddle => { // Returns a new array instead of modifying prevState (Posterity: Don't want to modify prevState!)
             // Posterity: Expand all riddle properties before overwriting the 'isShown' property
             return _riddle.filename === filename ? {..._riddle, isShown: !_riddle.isShown} : _riddle 
         })

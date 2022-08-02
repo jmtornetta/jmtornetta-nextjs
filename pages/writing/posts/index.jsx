@@ -1,4 +1,3 @@
-// import { useState } from "react"
 import ls from "/utils/ls.js"
 import parseMarkdownFrontmatter from "/utils/parseMarkdownFrontmatter.js"
 import * as fs from "node:fs/promises"
@@ -18,7 +17,7 @@ export async function getStaticProps(){ // Run from server on every page load
         const postParsed = {
             ...file, 
             markdown : _fileParsed.markdown, 
-            // vfile : _fileParsed.vfile, // Returns same value as 'markdown' once frontmatter is processed, so can be left out
+            // vfile : _fileParsed.vfile, // Posterity: Returns same value as 'markdown' once frontmatter is processed, so can be left out
             postTitle : _fileParsed.frontmatter.title ? _fileParsed.frontmatter.title : null,
             postDate : _fileParsed.frontmatter.date ? _fileParsed.frontmatter.date : null,
             postImage : _fileParsed.frontmatter.image.match(/\.(jpg|jpeg|png|webp|svg|gif){1,10}$/) ? _fileParsed.frontmatter.image : null,
@@ -41,8 +40,6 @@ export default function Posts({posts}){
     
     // Only show the first 6 post previews
     const _shownPosts = _posts.slice(0,5)
-
-    // const [postsGallery,setPostsGallery] = useState(posts) // Will use for filter/sort
     
     // Render riddle boxes by looping through riddle data array
     const postElements = _shownPosts.map(_post => (
