@@ -1,4 +1,4 @@
-import Layout from "../components/layout";
+import Layout from "/components/layout";
 
 export default function PrivacyPolicy(){return(
     <Layout title="Privacy Policy">
