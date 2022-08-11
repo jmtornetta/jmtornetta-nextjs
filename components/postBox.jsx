@@ -29,7 +29,7 @@ export default function PostBox(props) {
       </p>
 
       {/* Read more button that links to post slug */}
-      <Link href={`/portfolio/posts/${props.slug}`}><a className='contents'><Button className="mt-4 justify-self-end w-fit">Read More</Button></a></Link>
+      <Link href={props.slug}><a className='contents'><Button className="mt-4 justify-self-end w-fit">Read More</Button></a></Link>
     </div>
   )
 }
