@@ -1,6 +1,6 @@
 import { useState } from "react"
-import ls from "/utils/ls.js"
-import parseMarkdownFrontmatter from "/utils/parseMarkdownFrontmatter.js"
+import ls from "/utils-js/node/ls"
+import parseMarkdownFrontmatter from "/utils-js/node/parseMarkdownFrontmatter"
 import * as fs from "node:fs/promises"
 import Layout from "/components/layout"
 import RiddleBox from "/components/riddleBox"

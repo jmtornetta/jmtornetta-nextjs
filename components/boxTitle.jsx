@@ -1,4 +1,5 @@
-import { classNames } from "/utils/classNames"
+import { classNames } from "/utils-js/domProps"
+
 export default function BoxTitle(props) {
   // Custom style and node (h2) for feature box content titles
   return (

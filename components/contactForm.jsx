@@ -1,6 +1,6 @@
 import { MailIcon } from '@heroicons/react/outline'
 import Button from '/components/button'
-import { classNames } from "/utils/classNames"
+import { classNames } from "/utils-js/domProps"
 
 export default function ContactForm(props) {
   const handleSubmit = () => {

@@ -1,4 +1,5 @@
-import { classNames } from "/utils/classNames"
+import { classNames } from "/utils-js/domProps"
+
 export default function BoxSubtitle(props){
   // Shows a descriptor of a feature content box as a subtitle
   return(
