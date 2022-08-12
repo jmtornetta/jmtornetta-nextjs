@@ -8,6 +8,7 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + Tailwind Forms Plugin => Styling  
 # Plan
 ## Next
++ [ ] Use file path of blog content instead of slug when parsing markdown. 
 + [ ] Research best way to send emails from node/nextjs server via AWS; Create Contact button  
 + [ ] Create build script via package.json to build css    
 + [ ] Deploy via AWS free tier or Vercel  
