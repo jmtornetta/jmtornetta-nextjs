@@ -21,6 +21,9 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Update 'getServerSideProps' so cached content is used unless there is an update (then revalidate). // Don't want to ping the server for every page visit.  
 + [ ] Embed iframe of calendar in modal popup  
 # Changelog
+## 08/11/2022
++ [x] Add dynamic routing to post content pages.  
++ [x] Refactor markdown conversion functions for content.  
 ## 08/01/2022
 + [x] Header styling fixes and completion.  
 + [x] Update page content.  

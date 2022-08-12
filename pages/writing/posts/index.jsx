@@ -1,33 +1,9 @@
-import ls from "/utils-js/node/ls"
-import parseMarkdownFrontmatter from "/utils-js/node/parseMarkdownFrontmatter"
-import * as fs from "node:fs/promises"
 import Layout from "/components/layout"
 import PostBox from "/components/postBox"
+import { getAllMdContent } from "/lib"
 
-const postsDir = "data/posts/"
-
-export async function getStaticProps() { // Run from server on every page load
-    // List all files in directory
-    const filesList = await ls(postsDir).catch(console.error)
-
-    // Parse each blog into array of objects so title and snippet can be retrieved
-    const postsArr = await Promise.all(filesList.map(async (file) => {
-        const _fileRaw = await fs.readFile(file.filepath, 'utf8', (err, content) => (content).catch(err))
-        const _fileParsed = await parseMarkdownFrontmatter(_fileRaw)
-        const postParsed = {
-            ...file,
-            markdown: _fileParsed.markdown,
-            // vfile : _fileParsed.vfile, // Posterity: Returns same value as 'markdown' once frontmatter is processed, so can be left out
-            postTitle: _fileParsed.frontmatter.title ? _fileParsed.frontmatter.title : null,
-            postDate: _fileParsed.frontmatter.date ? _fileParsed.frontmatter.date : null,
-            postImage: _fileParsed.frontmatter.image.match(/\.(jpg|jpeg|png|webp|svg|gif){1,10}$/) ? _fileParsed.frontmatter.image : null,
-            postSlug: _fileParsed.frontmatter.slug ? _fileParsed.frontmatter.slug : file.filename.replace(/\.[a-zA-Z]{1,10}$/, ""),
-            isShown: false // Initially hide all post snippets; for use with filter later
-        }
-        return postParsed // Store each file object with name, path, and html in array
-    }))
-    // Return 'props' object which is passed to the Riddle jsx page component on page load
-    return { props: { posts: postsArr } }
+export async function getStaticProps() { // Run from server on every page load    
+    return {props : {posts : await getAllMdContent("data/posts/").catch(console.error)}}
 }
 
 export default function Posts({ posts }) {
@@ -37,9 +13,8 @@ export default function Posts({ posts }) {
         const date2 = new Date(b.date)
         return date2 - date1; // Sorts from newest to oldest
     })
-
-    // Only show the first 6 post previews
-    const _shownPosts = _posts.slice(0, 5)
+    
+    const _shownPosts = _posts.slice(0, 4)
 
     return (
         <Layout title="Blog Posts">
@@ -48,14 +23,14 @@ export default function Posts({ posts }) {
                 {_shownPosts.map(_post => (
                     // Render riddle boxes by looping through riddle data array
                     <PostBox
-                        key={_post.filename}
-                        title={_post.postTitle}
-                        date={_post.postDate}
+                        key={_post.slug}
+                        title={_post.title}
+                        date={_post.date}
                         text={_post.markdown}
                         textLength={300}
-                        slug={`/posts/${encodeURIComponent(_post.postSlug)}`}
-                        image={_post.postImage}
-                        isShown={_post.isShown}
+                        slug={_post.slug}
+                        image={_post.image}
+                        // isShown={_post.isShown} // Posterity: For riddles
                     />
                 ))}
             </div>

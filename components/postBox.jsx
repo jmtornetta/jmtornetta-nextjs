@@ -1,5 +1,3 @@
-// import ReactMarkdown from "react-markdown"
-// import * as fs from "node:fs/promises"
 import BoxTitle from "/components/boxTitle"
 import BoxSubtitle from "/components/boxSubtitle"
 import Image from "next/image"
@@ -29,7 +27,7 @@ export default function PostBox(props) {
       </p>
 
       {/* Read more button that links to post slug */}
-      <Link href={props.slug}><a className='contents'><Button className="mt-4 justify-self-end w-fit">Read More</Button></a></Link>
+      <Link as={`/writing/posts/${props.slug}`} href={`/writing/posts/[slug]`}><a className='contents'><Button className="mt-4 justify-self-end w-fit">Read More</Button></a></Link>
     </div>
   )
 }
