@@ -8,8 +8,11 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + Tailwind Forms Plugin => Styling  
 # Plan
 ## Next
++ [ ] Add technologies and skills to Programming page  
++ [ ] Add images to Programming component  
++ [ ] Add GitHub links where appropriate to Programming components  
 + [ ] Use file path of blog content instead of slug when parsing markdown. 
-+ [ ] Research best way to send emails from node/nextjs server via AWS; Create Contact button  
++ [ ] Research best way to send emails from node/nextjs server via AWS; Call from Contact button  
 + [ ] Create build script via package.json to build css    
 + [ ] Deploy via AWS free tier or Vercel  
 ## Later
@@ -22,6 +25,10 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [ ] Update 'getServerSideProps' so cached content is used unless there is an update (then revalidate). // Don't want to ping the server for every page visit.  
 + [ ] Embed iframe of calendar in modal popup  
 # Changelog
+## 08/14/2022
++ [x] Content: Create programming pages using boxes to visually showcase work; Keep everything on one page for now (frontend vs backend)   
++ [x] Refactor: Utility functions   
++ [x] Fix: Missing argument in 'getMdContent()' function  
 ## 08/11/2022
 + [x] Add dynamic routing to post content pages.  
 + [x] Refactor markdown conversion functions for content.  
