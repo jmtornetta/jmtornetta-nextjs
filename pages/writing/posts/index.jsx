@@ -3,7 +3,7 @@ import PostBox from "/components/postBox"
 import { getAllMdContent } from "/lib"
 
 export async function getStaticProps() { // Run from server on every page load    
-    return {props : {posts : await getAllMdContent("data/posts/").catch(console.error)}}
+    return {props : {posts : await getAllMdContent("data/posts/", "posts").catch(console.error)}}
 }
 
 export default function Posts({ posts }) {
