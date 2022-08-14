@@ -1,12 +1,12 @@
 import Layout from '/components/layout'
 import ReactMarkdown from 'react-markdown'
-import { getAllMdContent, getMdContent } from '/lib'
+import { getAllMdContent, getMdContent } from '/lib/getMarkdown'
 
 // Generates each post dynamically from markdown data in 'posts/' directory.
 
 // Next.js API. Create post paths dynamically during application build 
 export async function getStaticPaths() {
-  const contentArr = await getAllMdContent("data/posts/", "posts").catch(console.error)   
+  const contentArr = await getAllMdContent("content/posts/", "posts").catch(console.error)   
   const paths = contentArr.map(post => {
     const params = { slug : post.slug }
     return { params }
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 // Next.js API. Use each created path to get each post's content. 
 export async function getStaticProps({params}) { // Run from server on every page load    
   const {slug} = params
-  return {props : {post : await getMdContent(`data/posts/${slug}.md`, "posts").catch(console.error)}}
+  return {props : {post : await getMdContent(`content/posts/${slug}.md`, "posts").catch(console.error)}}
 }
 
 // Convert post markdown to html. 

@@ -1,6 +1,6 @@
 import Cal from "@calcom/embed-react";
 import { CalendarIcon } from "@heroicons/react/outline";
-import { classNames } from "/utils-js/domProps"
+import { classNames } from "/lib/utils-js/domProps"
 
 export default function Calendar(props) {
   const calendarPath = "jmtornetta/mk-meeting"

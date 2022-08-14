@@ -45,7 +45,7 @@ A personal web application to make it easy to view my work and get in touch. Thi
 + [x] Fix styling for mobile nav  
 + [x] Simplify DOM for header  
 ## 07/05/2022
-+ [x] Dynamically parse markdown riddles from 'data/'  
++ [x] Dynamically parse markdown riddles from 'content/'  
 + [x] Parse frontmatter into object and pass as prop to 'Riddle' component  
 + [x] Upload riddles as data  
 + [x] Change 'render' of markdown to 'parse' and then 'render' in the page's return content.  

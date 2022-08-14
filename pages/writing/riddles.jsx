@@ -1,10 +1,10 @@
 import Layout from "/components/layout"
 import RiddleBox from "/components/riddleBox"
 import { useState } from "react"
-import { getAllMdContent } from "/lib"
+import { getAllMdContent } from "/lib/getMarkdown"
 
 export async function getStaticProps(){ // Run once as riddles should be static
-    return {props : {riddles : await getAllMdContent("data/riddles/", "riddles").catch(console.error)}}
+    return {props : {riddles : await getAllMdContent("content/riddles/", "riddles").catch(console.error)}}
 }
 
 export default function Riddles({riddles}){  

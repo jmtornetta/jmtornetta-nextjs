@@ -1,9 +1,9 @@
 import Layout from "/components/layout"
 import PostBox from "/components/postBox"
-import { getAllMdContent } from "/lib"
+import { getAllMdContent } from "/lib/getMarkdown"
 
-export async function getStaticProps() { // Run from server on every page load    
-    return {props : {posts : await getAllMdContent("data/posts/", "posts").catch(console.error)}}
+export async function getStaticProps() { // Posterity: Only runs during build
+    return {props : {posts : await getAllMdContent("content/posts/", "posts").catch(console.error)}}
 }
 
 export default function Posts({ posts }) {
